@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import FormatTime from '../FormatTime/FormatTime';
+import FormattedTime from '../FormattedTime/FormattedTime';
 import Button from '../Button/Button';
 import styles from './StopWatch.module.scss';
 
 const StopWatch = () => {
-
   const [time, setTime] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
 
@@ -26,7 +25,9 @@ const StopWatch = () => {
 
   return (
     <div>
-      <div className={styles.formatTime}>{FormatTime(time)}</div>
+      <div className={styles.formattedTime}>
+        <FormattedTime time={ time } />
+      </div>
       <Button action={() => setTimerOn(true)}>Start</Button>
       <Button action={() => setTimerOn(false)}>Stop</Button>
       <Button action={() => setTime(0)}>Reset</Button>
